@@ -1,4 +1,4 @@
-package com.company;
+package com.company.calcengine;
 
 public class Adder extends CalculateBase {
 

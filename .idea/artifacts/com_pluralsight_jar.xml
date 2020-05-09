@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="com.pluralsight:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/com_pluralsight_jar</output-path>
+    <root id="archive" name="com.pluralsight.jar">
+      <element id="module-output" name="com.pluralsight" />
+    </root>
+  </artifact>
+</component>

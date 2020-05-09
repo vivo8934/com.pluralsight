@@ -1,6 +1,8 @@
-package com.company;
+package com.company.calcengine;
 
-import static com.company.MathCommand.*;
+import static com.company.calcengine.MathCommand.Add;
+import static com.company.calcengine.MathCommand.Divide;
+import static com.company.calcengine.MathCommand.Subtract;
 
 public class CalculatorHelper {
     MathCommand command;
@@ -8,7 +10,7 @@ public class CalculatorHelper {
     double rightVal;
     double results;
 
-    public void process(String statement) throws InvalidStatementException{
+    public void process(String statement) throws InvalidStatementException {
         String [] parts = statement.split(" ");
         if (parts.length != 3)
             throw new InvalidStatementException("Incorrect number of fields", statement);

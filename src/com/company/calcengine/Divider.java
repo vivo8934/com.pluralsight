@@ -1,4 +1,6 @@
-package com.company;
+package com.company.calcengine;
+
+import com.company.calcengine.CalculateBase;
 
 public class Divider extends CalculateBase {
 

@@ -1,4 +1,13 @@
-package com.company;
+package com.company.myapp;
+
+import com.company.calcengine.Adder;
+import com.company.calcengine.CalculateBase;
+import com.company.calcengine.CalculatorHelper;
+import com.company.calcengine.Divider;
+import com.company.calcengine.InvalidStatementException;
+import com.company.calcengine.MathEquation;
+import com.company.calcengine.Multiplyer;
+import com.company.calcengine.Subtractor;
 
 public class Main {
 
@@ -55,7 +64,7 @@ public class Main {
             System.out.println("using inheritance");
             System.out.println();
 
-            CalculateBase []  calculators = {
+            CalculateBase[]  calculators = {
                     new Divider(100.0, 20.0),
                     new Subtractor(45.9, 30.1),
                     new Multiplyer(10.3, 3.5),
