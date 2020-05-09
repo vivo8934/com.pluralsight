@@ -7,6 +7,9 @@ public class Main {
         //useCalculateBase();
         //useMathEquation();
         String [] statements = new String[]{
+                "add 1.0",
+                "add xx 12.0",
+                "addX 0.0 0.0",
                 "divide 100.0 50.0",
                 "add 25.0 92.0",
                 "subtract 225.0 17.0",
@@ -14,8 +17,14 @@ public class Main {
         };
         CalculatorHelper helper = new CalculatorHelper();
         for (String statement:statements) {
-            helper.process(statement);
-            System.out.println(helper);
+            try {
+                helper.process(statement);
+                System.out.println(helper);
+            }catch (InvalidStatementException e){
+                System.out.println("Error: " + e.getMessage());
+                if (e.getCause() != null)
+                    System.out.println("Original error: " + e.getCause().getMessage());
+            }
         }
 
         }
