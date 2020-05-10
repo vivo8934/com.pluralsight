@@ -1,13 +1,6 @@
 package com.company.myapp;
 
-import com.company.calcengine.Adder;
-import com.company.calcengine.CalculateBase;
-import com.company.calcengine.CalculatorHelper;
-import com.company.calcengine.Divider;
-import com.company.calcengine.InvalidStatementException;
-import com.company.calcengine.MathEquation;
-import com.company.calcengine.Multiplyer;
-import com.company.calcengine.Subtractor;
+import com.company.calcengine.*;
 
 public class Main {
 
@@ -15,26 +8,51 @@ public class Main {
 
         //useCalculateBase();
         //useMathEquation();
+        //useCalculateHelper();
+
+
         String [] statements = new String[]{
-                "add 1.0",
-                "add xx 12.0",
-                "addX 0.0 0.0",
-                "divide 100.0 50.0",
-                "add 25.0 92.0",
-                "subtract 225.0 17.0",
-                "Multiphy 10.0 5.0"
+                "add 2.3 14.7",
+                "power 5.0 2.0",
+                "divide 34.0 12.2",
+                "multipy 10.2 3.5",
+                "subtract 44.6 11.8"
         };
-        CalculatorHelper helper = new CalculatorHelper();
-        for (String statement:statements) {
-            try {
-                helper.process(statement);
-                System.out.println(helper);
-            }catch (InvalidStatementException e){
-                System.out.println("Error: " + e.getMessage());
-                if (e.getCause() != null)
-                    System.out.println("Original error: " + e.getCause().getMessage());
-            }
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[]{
+                new Adder(),
+                new PowerOf(),
+                new Divider(),
+                new Multiplyer(),
+                new Subtractor()
+        });
+        for (String statement: statements) {
+            String out = helper.process(statement);
+            System.out.println(out);
+
         }
+
+        }
+        static  void useCalculateHelper(){
+            String [] statements = new String[]{
+                    "add 1.0",
+                    "add xx 12.0",
+                    "addX 0.0 0.0",
+                    "divide 100.0 50.0",
+                    "add 25.0 92.0",
+                    "subtract 225.0 17.0",
+                    "Multiphy 10.0 5.0"
+            };
+            CalculatorHelper helper = new CalculatorHelper();
+            for (String statement:statements) {
+                try {
+                    helper.process(statement);
+                    System.out.println(helper);
+                }catch (InvalidStatementException e){
+                    System.out.println("Error: " + e.getMessage());
+                    if (e.getCause() != null)
+                        System.out.println("Original error: " + e.getCause().getMessage());
+                }
+            }
 
         }
         static  void useMathEquation(){
